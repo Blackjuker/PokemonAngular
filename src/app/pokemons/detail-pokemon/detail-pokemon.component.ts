@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../donnees-pokemon/pokemon';
 import { POKEMONS } from '../donnees-pokemon/mock-pokemon';
 import {Router, ActivatedRoute } from '@angular/router';
+import { PokemonService } from '../pokemon.service';
 
 
 
@@ -15,7 +16,7 @@ export class DetailPokemonComponent implements OnInit {
   pokemons!: Pokemon[];
   pokemon: any=null;
 
-  constructor(private route:ActivatedRoute,private router:Router) {
+  constructor(private route:ActivatedRoute,private router:Router,private pokemonService: PokemonService) {
 
   }
     ngOnInit():void{
@@ -24,11 +25,7 @@ export class DetailPokemonComponent implements OnInit {
         //let id = this.route.snapshot.paramMap.get('id'); ou 
         let idUrl = this.route.snapshot.params['id']
 
-        for(let i=0;i<this.pokemons.length;i++){
-          if(this.pokemons[i].id == idUrl){
-            this.pokemon = this.pokemons[i]
-          }
-        }
+       this.pokemon = this.pokemonService.getPokemon(idUrl);
     }
 
     goBack():void{
