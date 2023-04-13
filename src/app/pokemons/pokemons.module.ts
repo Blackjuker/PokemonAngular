@@ -15,6 +15,8 @@ import { PokemonService } from './pokemon.service';
 import { PokemonRoutingModule } from './pokemons-routing.module';
 
 
+
+
 @NgModule({
   declarations: [
     PokemonsComponent,
