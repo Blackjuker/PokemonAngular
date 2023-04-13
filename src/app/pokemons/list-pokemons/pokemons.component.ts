@@ -20,9 +20,15 @@ export class PokemonsComponent implements OnInit{
 
     ngOnInit(): void {
         //j'insère les données de mock-pokemon.ts dans la variable pokemons du composant
-        this.pokemons =       this.pokemonService.getPokemons();
-        //sans service 
-      //  this.pokemons = POKEMONS;
+     //   this.pokemons =       this.pokemonService.getPokemons();
+
+        this.pokemonService.getPokemons().subscribe
+        (
+            pokemons => {
+                this.pokemons = pokemons;
+            }
+        );
+       
     
 }
 
