@@ -21,4 +21,6 @@ export class PokemonService {
           return false;
     }
 
+    //Delete Pokemon by id  
+
 }
