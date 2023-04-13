@@ -1,22 +1,29 @@
 <h1 class="center">Liste de pokemons</h1>
-
 <div class="container">
-    <div class="row">
-        <div *ngFor="let pokemon of pokemons" class="col s6 m4"> <!-- *ngFor permet de boucle -->
-            <div class="card horizontal" pkmnBorderCard (click)="selectPokemon(pokemon)" >
-                <div class="card-image">
-                    <img [src]="pokemon.picture" alt="">  <!-- [ ] indique à angular d'afficher l'image et non la valeur et sans il va afficher juste la valeur -->
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <p>{{pokemon.name}}</p>
-                        <p> <small>{{pokemon.created | date:'medium'}} </small> </p>
-                        <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}" >{{type}}</span><br>
-                        
-                    </div>
-            
-                </div>
+  <div class="row">
+    <div *ngFor="let pokemon of pokemons"  class="col s6 m4">
+      <div class="card horizontal" pkmnBorderCard  (click)="selectPokemon(pokemon)" >
+          <div class="card-image">
+            <img [src]="pokemon.picture" >
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>{{ pokemon.name }}</p>
+              <p><small>{{ pokemon.created | date:'dd/mm/yy' }}</small></p>
+              <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor}}"> {{ type }}</span>
+             
+              <!--etoiles-->
+              <ul>
+                <li *ngFor="let num of generateNumbers(pokemon.rarete)">
+                  <span *ngFor="let star of generateStars(5)" class="star">
+                    <i class="fa fa-star"></i>
+                  </span>
+                </li>
+              </ul>
+              
             </div>
-        </div>
+          </div>
+      </div>
     </div>
+  </div>
 </div>

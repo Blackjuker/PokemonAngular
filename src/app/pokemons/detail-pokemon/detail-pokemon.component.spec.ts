@@ -11,7 +11,9 @@ describe('DetailPokemonComponent', () => {
       declarations: [ DetailPokemonComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(DetailPokemonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
