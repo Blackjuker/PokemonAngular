@@ -25,7 +25,11 @@ export class DetailPokemonComponent implements OnInit {
         //let id = this.route.snapshot.paramMap.get('id'); ou 
         let idUrl = this.route.snapshot.params['id']
 
-       this.pokemon = this.pokemonService.getPokemon(idUrl);
+      //  this.pokemon = this.pokemonService.getPokemon(idUrl);
+      //ici le subscribe refresente le fetch
+      this.pokemon = this.pokemonService.getPokemon(idUrl).subscribe(
+        pokemon =>this.pokemon = pokemon,
+      )
     }
 
     goBack():void{
