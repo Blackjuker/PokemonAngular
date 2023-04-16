@@ -25,7 +25,6 @@ export class SearchPokemonComponent implements OnInit {
   ngOnInit():void {
     this.checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
 
-    
 
     this.pokemons$ = this.motRecherche.pipe(
       debounceTime(300),
@@ -62,6 +61,7 @@ export class SearchPokemonComponent implements OnInit {
   }
 
   private textSearchPerso(text: string) {
+   
     if (text=="name") {
       this.searchInput.nativeElement.placeholder = "Rechercher par nom du pokemon";
     }else if (text=="type"){

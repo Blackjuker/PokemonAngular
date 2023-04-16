@@ -6,22 +6,22 @@
             <div class="card-content">
                <div class="center">
                 <div class="card-content">
-                    <label>
-                        <input type="checkbox" class="filled-in with-gap" name="name" (click)="handleCheckboxChange($event)" />
-                        <span>name</span>
+                    <label >
+                        <input type="checkbox" class="filled-in with-gap" name="name" (click)="handleCheckboxChange($event)" s/>
+                        <span style="margin-left: 15px;">name</span>
                       </label>
                       <label>
                         <input type="checkbox" class="filled-in with-gap" name="type" (click)="handleCheckboxChange($event)"  />
-                        <span>type</span>
+                        <span style="margin-left: 15px;">type</span>
                       </label>
-                      <label>
-                        <input type="checkbox" class="filled-in with-gap" name="rarete" (click)="handleCheckboxChange($event) " />
-                        <span>rarete</span>
+                      <label >
+                        <input type="checkbox" class="filled-in with-gap" name="rarete" (click)="handleCheckboxChange($event) "  />
+                        <span style="margin-left: 15px;">rarete</span>
                       </label>
                 </div>
                </div>
                 <div class="input-field">
-                    <input type="text" class="validate" id="sr" placeholder="Rechercher un Pokémon" #searchBox (keyup)="recherchePokemon(searchBox.value)" #searchInput>
+                    <input type="text" class="validate" id="sr" placeholder="Recherche par Défaut par nom Pokémon" #searchBox (keyup)="recherchePokemon(searchBox.value)" #searchInput>
                 </div>
                 <div class="collection">
                     <a *ngFor="let pokemon of pokemons$ | async"
