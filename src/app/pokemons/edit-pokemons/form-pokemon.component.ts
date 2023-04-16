@@ -62,10 +62,16 @@ export class FormPokemonComponent implements OnInit{
    
     if (this.isAddingPokemon) {
     //  this.pokemonsService.addPokemon(this.pokemon).subscribe(p=>console.log(p));
+
+    if (isNaN(this.pokemon.id)){
+      this.pokemon.id = Date.now();
+    }
       this.pokemonsService.addPokemon(this.pokemon)
       .subscribe((pokemon : Pokemon)=>this.router.navigate(['/pokemon', pokemon.id])),console.log(this.pokemon.id);
      
     }else{
+     
+     
       let link = ['/pokemon', this.pokemon.id]
       this.pokemonsService.addTypePokemon(this.pokemon).subscribe(p=>console.log(p));
       this.router.navigate(link)

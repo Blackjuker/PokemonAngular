@@ -3,7 +3,8 @@
 
 <div class="row">
   <div class="col s12 center-align">
-    <a class="waves-effect waves-light btn" routerLink="/pokemon/add">Ajouter Pokemon</a>
+    <a class="waves-effect waves-light btn mt-2" style=" margin-right: 10px;" routerLink="/pokemon/add">Ajouter Pokemon</a>
+    <a class="waves-effect waves-light btn orange" (click)="deteletAllPokemons()">Supprimer Tous les Pokemons</a>
   </div>
 </div>
 <div class="container">
@@ -19,7 +20,7 @@
               <p>{{ pokemon.name }}</p>
               <p><small>{{ pokemon.created | date:'dd/mm/yy' }}</small></p>
               <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor}}"> {{ type }}</span>
-              <h5 style=" content: \f005;color: rgb(255, 208, 90); font-weight: bold; letter-spacing: 0.2em; ">  {{pokemon.rarete | pokemonRareteStar}} </h5> 
+              <h5 style=" color: rgb(255, 208, 90); font-weight: bold; letter-spacing: 0.2em; ">  {{pokemon.rarete | pokemonRareteStar}} </h5> 
             </div>
           </div>
       </div>

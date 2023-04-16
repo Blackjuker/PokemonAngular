@@ -39,5 +39,15 @@ export class PokemonsComponent implements OnInit{
     return Array.from({ length: count });
   }
    
+  deteletAllPokemons(){
+    for(let i = 0; i < this.pokemons.length; i++){
+      console.log(this.pokemons[i].id);
+  //  this.pokemonService.deletePokemon(this.pokemons[i].id);
+    this.pokemonService.deletePokemon(this.pokemons[i].id).subscribe(
+      pokemon => this.pokemons = pokemon
+    )
+    this.router.navigate(['pokemon/all']);
+    }
+  }
   
 }
