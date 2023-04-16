@@ -112,4 +112,12 @@ export class PokemonsService {
       
             )
   }
+
+  moteurRecherche(motCle:string):Observable<Pokemon[]>{
+    const url = `${this.pokemonsUrl}?name=${motCle}`
+    return this.http.get<Pokemon[]>(url).pipe(
+        tap(_=>this.log('Search Pokemons')),
+        catchError(this.handleError<Pokemon[]>('Search Pokemons',[]))
+    );
+  }
 }

@@ -13,6 +13,7 @@ import { BorderCardDirective } from './directive/border-card.directive';
 import { PokemonsService } from './pokemons.service';
 
 import { PokemonRoutingModule } from './pokemons-routing.module';
+import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { PokemonRoutingModule } from './pokemons-routing.module';
     FormPokemonComponent,
     PokemonTypeColorPipe,
     BorderCardDirective,
+    SearchPokemonComponent,
     
   ],
   imports: [
