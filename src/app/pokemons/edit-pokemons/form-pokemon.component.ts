@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 
 import { ActivatedRoute, Router } from "@angular/router";
 import { PokemonsService } from "../pokemons.service";
+import { Pokemon } from "../donnees-pokemons/pokemon";
 
 @Component({
   selector: 'form-pokemon',
@@ -11,11 +12,13 @@ export class FormPokemonComponent implements OnInit{
 
   @Input() pokemon: any
   types: any = [];
+  isAddingPokemon !: boolean;
 
   constructor(private router: Router, private pokemonsService: PokemonsService){}
 
   ngOnInit(): void {
     this.types = this.pokemonsService.getPokemonTypes();
+    this.isAddingPokemon = this.router.url.includes("add");
   }
 
 
@@ -56,9 +59,20 @@ export class FormPokemonComponent implements OnInit{
   }
 
   onSubmit():void{
-    let link = ['/pokemon', this.pokemon.id]
-    this.pokemonsService.addTypePokemon(this.pokemon).subscribe(p=>console.log(p));
-    this.router.navigate(link)
+   
+    if (this.isAddingPokemon) {
+    //  this.pokemonsService.addPokemon(this.pokemon).subscribe(p=>console.log(p));
+      this.pokemonsService.addPokemon(this.pokemon)
+      .subscribe((pokemon : Pokemon)=>this.router.navigate(['/pokemon', pokemon.id])),console.log(this.pokemon.id);
+     
+    }else{
+      let link = ['/pokemon', this.pokemon.id]
+      this.pokemonsService.addTypePokemon(this.pokemon).subscribe(p=>console.log(p));
+      this.router.navigate(link)
+      //  this.pokemonsService.updatePokemon(this.pokemon).subscribe(p=>console.log(p));
+    }
+  
+  
   }
 
 }

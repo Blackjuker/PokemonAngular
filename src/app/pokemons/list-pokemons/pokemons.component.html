@@ -1,4 +1,11 @@
 <h1 class="center">Liste de pokemons</h1>
+
+
+<div class="row">
+  <div class="col s12 center-align">
+    <a class="waves-effect waves-light btn" routerLink="/pokemon/add">Ajouter Pokemon</a>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div *ngFor="let pokemon of pokemons"  class="col s6 m4">
@@ -11,15 +18,7 @@
               <p>{{ pokemon.name }}</p>
               <p><small>{{ pokemon.created | date:'dd/mm/yy' }}</small></p>
               <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor}}"> {{ type }}</span>
-             
-              <!--etoiles-->
-              <ul>
-                <li *ngFor="let num of generateNumbers(pokemon.rarete)">
-                  <span *ngFor="let star of generateStars(5)" class="star">
-                    <i class="fa fa-star"></i>
-                  </span>
-                </li>
-              </ul>
+              <p style="color:aquamarine">{{pokemon.rarete}}</p>
               
             </div>
           </div>
@@ -27,3 +26,5 @@
     </div>
   </div>
 </div>
+
+
