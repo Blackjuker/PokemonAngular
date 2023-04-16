@@ -14,6 +14,8 @@ import { PokemonsService } from './pokemons.service';
 
 import { PokemonRoutingModule } from './pokemons-routing.module';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
+import { PokemonLoaderComponent } from './pokemon-loader/pokemon-loader.component';
+import { PokemonRareteStarPipe } from './pipes/pokemon-rarete-stars.pipe';
 
 
 @NgModule({
@@ -24,8 +26,10 @@ import { SearchPokemonComponent } from './search-pokemon/search-pokemon.componen
     AddPokemonComponent,
     FormPokemonComponent,
     PokemonTypeColorPipe,
+    PokemonRareteStarPipe,
     BorderCardDirective,
     SearchPokemonComponent,
+    PokemonLoaderComponent,
     
   ],
   imports: [

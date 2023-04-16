@@ -8,6 +8,7 @@
 </div>
 <div class="container">
   <div class="row">
+    <app-search-pokemon></app-search-pokemon>
     <div *ngFor="let pokemon of pokemons"  class="col s6 m4">
       <div class="card horizontal" pkmnBorderCard  (click)="selectPokemon(pokemon)" >
           <div class="card-image">
@@ -18,13 +19,17 @@
               <p>{{ pokemon.name }}</p>
               <p><small>{{ pokemon.created | date:'dd/mm/yy' }}</small></p>
               <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor}}"> {{ type }}</span>
-              <p style="color:aquamarine">{{pokemon.rarete}}</p>
-              
+              <h5 style=" content: \f005;color: rgb(255, 208, 90); font-weight: bold; letter-spacing: 0.2em; ">  {{pokemon.rarete | pokemonRareteStar}} </h5> 
             </div>
           </div>
       </div>
     </div>
   </div>
 </div>
+
+
+<h3 class="center" *ngIf="!pokemons">
+  <app-pokemon-loader></app-pokemon-loader>
+</h3>
 
 

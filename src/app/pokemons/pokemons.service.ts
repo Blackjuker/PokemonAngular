@@ -115,9 +115,34 @@ export class PokemonsService {
 
   moteurRecherche(motCle:string):Observable<Pokemon[]>{
     const url = `${this.pokemonsUrl}?name=${motCle}`
+   if(motCle.length<=0){
+    return of([]);
+   }
+ 
     return this.http.get<Pokemon[]>(url).pipe(
         tap(_=>this.log('Search Pokemons')),
         catchError(this.handleError<Pokemon[]>('Search Pokemons',[]))
+    );
+  }
+
+  moteurRecherche2(motCle: string, type?: string): Observable<Pokemon[]> {
+    let url = `${this.pokemonsUrl}?`;
+  
+    if (motCle) {
+      url += `name=${motCle}`;
+    }
+  
+    if (type) {
+      if (motCle) {
+        url += `&type=${type}`;
+      } else {
+        url += `type=${type}`;
+      }
+    }
+  
+    return this.http.get<Pokemon[]>(url).pipe(
+      tap(_ => this.log('Recherche de Pokémon effectuée')),
+      catchError(this.handleError<Pokemon[]>('Recherche de Pokémon', []))
     );
   }
 }

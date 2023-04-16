@@ -4,6 +4,7 @@ import { PokemonsComponent } from './list-pokemons/pokemons.component';
 import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.component';
 import { EditPokemonComponent } from './edit-pokemons/edit-pokemon.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
+import { AuthGuard } from '../auth.guard';
 
 // const pokemonsRoutes: Routes = [
 //   { path: 'pokemon/all', component : PokemonsComponent, },
@@ -15,10 +16,10 @@ const pokemonsRoutes: Routes = [
   {
     path: 'pokemon',
     children: [
-      { path: 'all', component : PokemonsComponent},
-      {path:'add',component: AddPokemonComponent},
-      { path: 'edit/:id', component : EditPokemonComponent},
-      { path: ':id', component : DetailPokemonComponent}
+      { path: 'all', component : PokemonsComponent,canActivate:[AuthGuard]},
+      {path:'add',component: AddPokemonComponent,canActivate:[AuthGuard]},
+      { path: 'edit/:id', component : EditPokemonComponent,canActivate:[AuthGuard]},
+      { path: ':id', component : DetailPokemonComponent,canActivate:[AuthGuard]}
     ]
   }
 ];

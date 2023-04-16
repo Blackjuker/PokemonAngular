@@ -1,0 +1,28 @@
+<div class="login-box">
+    <h2>Login</h2>
+    <p><em>{{message}}<</em></p>
+    <form>
+      <div class="user-box">
+        <input type="text" id="username" [(ngModel)]="username" name="username" required>
+        <label>Username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" id="password" [(ngModel)]="password" name="password" required>
+        <label>Password</label>
+      </div>
+      <a (click)="login()" *ngIf="!auth.isLog"> 
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Se Connecter
+      </a>
+      <a (click)="logout()" *ngIf="!auth.isLog"> 
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Se Déconnecter
+    </a>
+    </form>
+  </div>
